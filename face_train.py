@@ -3,7 +3,7 @@ import cv2
 import os
 
 face_cascade = cv2.CascadeClassifier("C:\opencv\opencv\sources\data\haarcascades\haarcascade_frontalface_default.xml")
-
+file = os.path.join(os.getcwd(),"templates\\temp.png")
 cap = cv2.VideoCapture(0)
 
 while 1:
@@ -21,7 +21,8 @@ while 1:
         break
     
     elif key == ord('s'):
-        cv2.imwrite('temp.png',roi_gray)
+        cv2.imwrite(file,roi_gray)
+        print ("Face Saved")
        
 cap.release()
 cv2.destroyAllWindows()
