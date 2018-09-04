@@ -13,7 +13,7 @@ while 1:
 
     for (x,y,w,h) in faces:
         cv2.rectangle(img,(x,y),(x+w-10,y+h-10),(255,0,0),2)
-        roi_gray = gray[y:y+h, x:x+w]       
+        roi_gray = gray[y:y+h-5, x:x+w-5]       
 
     cv2.imshow('img',img)
     key = cv2.waitKey(1) & 0xff
