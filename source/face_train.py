@@ -5,7 +5,7 @@ global roi,l
 
 roi = []
 
-face_cascade = cv2.CascadeClassifier("C:\opencv\opencv\sources\data\haarcascades\haarcascade_frontalface_default.xml")
+face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 print ("Press Q To Exit \nAnd S To Save Face")
 
@@ -43,12 +43,16 @@ def detFace(img):
 def saveFace():
     for a in roi:
         cv2.imshow('',a)
+        print ("Press Any Key To Exit Preview")
         cv2.waitKey(0)
         cv2.destroyAllWindows()
-        name = input("Enter Name For The Face : ")
-        file = os.path.join(os.getcwd(),"templates\\{}.png".format(name))
-        print (file)
-        cv2.imwrite(file,a)
+        name = input("Enter Name For The Face (Type None to ignore face) : ")
+        if name == "None":
+            print ("Face Ignored")
+        else:
+            file = os.path.join(os.getcwd(),"templates\\{}.png".format(name))
+            print (file)
+            cv2.imwrite(file,a)
         
 l = True
 
