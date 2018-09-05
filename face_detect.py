@@ -15,8 +15,8 @@ while True:
 
     loc = np.where(res>=thres)
     try:
-        for pt in list(zip(*loc[::-1]))[:-10]:
-            cv2.rectangle(gray,pt,(pt[0]+w , pt[1]+h),(255,255,255),1)
+        pt = max(list(zip(*loc[::-1]))[:-10])
+        cv2.rectangle(gray,pt,(pt[0]+w , pt[1]+h),(255,255,255),1)
         cv2.putText(gray,'Viraj',(pt[0],pt[1]), font, 3, (255,255,255), 1, cv2.LINE_AA)
     except:
         pass
