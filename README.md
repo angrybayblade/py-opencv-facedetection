@@ -2,6 +2,13 @@
 
     Some Dope Ass Python Scripts For Face Recognition
 
+# Before Running Scripts
+
+    Make Sure You Have Installed Numpy and Opencv
+    If Not Run Following ..
+    pip install opencv-python
+    pip install numpy 
+
 # Step 1
 
     Use Face Training Module To Train Faces
