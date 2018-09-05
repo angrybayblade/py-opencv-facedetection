@@ -4,10 +4,11 @@
 
 # Before Running Scripts
 
-    Make Sure You Have Installed Numpy and Opencv
+    Make Sure You Have Installed Numpy , Opencv and Pyinstaller (For Compiling Scripts)
     If Not Run Following ..
     pip install opencv-python
     pip install numpy 
+    pip install pyinstaller
 
 # Step 1
 
