@@ -13,8 +13,6 @@ def vidCap():
     cap = cv2.VideoCapture(0)
     while 1:
         ret, img = cap.read()
-               
-
         cv2.imshow('img',img)
         key = cv2.waitKey(1) & 0xff
         if key == ord('q'):
@@ -52,14 +50,15 @@ def saveFace():
         else:
             file = os.path.join(os.getcwd(),"templates\\{}.png".format(name))
             print (file)
-            cv2.imwrite(file,a)
-        
-l = True
+            cv2.imwrite(file,cv2.resize(a,(80,80)))
+           
 
-while l:
+while True:
     if vidCap():
         saveFace()
     else:
         break
 
-    
+
+  
+
