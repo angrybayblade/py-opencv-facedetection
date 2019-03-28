@@ -1,9 +1,7 @@
 import numpy as np
 import cv2
 import os
-global roi,l
-
-roi = []
+global l
 
 face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
@@ -24,11 +22,12 @@ def vidCap():
         elif key == ord('s'):
             cap.release()
             cv2.destroyAllWindows()
-            detFace(img)
+            saveFace(detFace(img))
             return True
             
        
 def detFace(img):
+    roi = []
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
@@ -36,9 +35,9 @@ def detFace(img):
         cv2.rectangle(img,(x,y),(x+w-10,y+h-10),(255,0,0),2)
         roi_gray = gray[y:y+h-5, x:x+w-5]
         roi.append(roi_gray)
+    return roi
 
-
-def saveFace():
+def saveFace(roi):
     for a in roi:
         cv2.imshow('',a)
         print ("Press Any Key To Exit Preview")
@@ -50,12 +49,12 @@ def saveFace():
         else:
             file = os.path.join(os.getcwd(),"templates\\{}.png".format(name))
             print (file)
-            cv2.imwrite(file,cv2.resize(a,(80,80)))
+            cv2.imwrite(file,a)
            
 
 while True:
     if vidCap():
-        saveFace()
+        continue
     else:
         break
 
