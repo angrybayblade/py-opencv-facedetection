@@ -5,6 +5,7 @@ import os
 
 print ("Press Q To Quit")
 cam = cv2.VideoCapture(0)
+
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 temp_array = os.listdir("templates//")
